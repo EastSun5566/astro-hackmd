@@ -1,0 +1,29 @@
+---
+import { client, getNoteSlug } from '../lib/hackmd';
+
+const notes = await client.getNoteList();
+const publicNotes = notes.filter((note) => note.readPermission === 'guest');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Astro + HackMD</title>
+  </head>
+  <body>
+    <main>
+      <h1>My HackMD notes</h1>
+      <ul>
+        {
+          publicNotes.map((note) => (
+            <li>
+              <a href={`/notes/${getNoteSlug(note)}/`}>{note.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </body>
+</html>
