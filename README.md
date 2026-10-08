@@ -6,7 +6,7 @@ A minimal Astro site that uses HackMD as a CMS. It fetches publicly readable not
 
 - Node.js 22 or later
 - pnpm
-- A HackMD access token
+- A HackMD API access token
 - At least one note with its read permission set to **Everyone**
 
 ## Getting started
@@ -23,7 +23,7 @@ Create your local environment file:
 cp .env.example .env
 ```
 
-Replace `<YOUR_ACCESS_TOKEN>` in `.env` with your HackMD access token, then start the development server:
+Replace `<YOUR_API_ACCESS_TOKEN>` in `.env` with your HackMD API access token, then start the development server:
 
 ```shell
 pnpm dev
@@ -56,4 +56,4 @@ src/
 
 The Markdown renderer uses `html: false`, so raw HTML in a note is escaped before the result is passed to Astro's `set:html` directive. Sanitize the rendered output first if you choose to enable raw HTML.
 
-Keep `.env` out of Git, and do not prefix the access token variable with `PUBLIC_`.
+Keep `.env` out of Git, and do not prefix the API access token variable with `PUBLIC_`.
